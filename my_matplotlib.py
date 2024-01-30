@@ -4,7 +4,7 @@ import pandas as pd
 from datetime import timedelta
 
 # Connect to the SQLite database
-conn = sqlite3.connect('C:/Users/Caina/Documents/Code-note/Sofascore2/static/{db_name}.db')
+conn = sqlite3.connect('{db_name}.db')
 
 # Execute a SQL query and load the data into a pandas DataFrame
 df = pd.read_sql_query("SELECT timestamp, passes_home, passes_away, expected_goals_home, expected_goals_away, ball_possession_home, ball_possession_away, total_shots_home, total_shots_away, shots_on_target_home, shots_on_target_away, big_chances_home, big_chances_away FROM statistics", conn)
@@ -49,5 +49,5 @@ for home, away, title in statistics:
     plt.legend()
     plt.xticks(new_timestamps, new_timestamps_str, rotation=45) # Set the x-ticks to the new timestamps
     plt.yticks(range(int(df[home].min()), int(df[home].max()) + 1))
-    plt.savefig(f'C:\\Users\\Caina\\Documents\\Code-note\\Sofascore2\\static\\{title.replace(" ", "_").lower()}_home_vs_away_over_time.png')
+    plt.savefig(f'{title.replace(" ", "_").lower()}_home_vs_away_over_time.png')
     plt.show()
