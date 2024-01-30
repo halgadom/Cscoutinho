@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
 
+<h2>Insira seus dados</h2>
+
+<form action="/" method="post">
+  <label for="sofascore">Dados para sofascore.py:</label><br>
+  <input type="text" id="sofascore" name="sofascore" value=""><br>
+  <input type="submit" name="submit_sofascore" value="Submit for sofascore.py"><br>
+  <input type="submit" name="run_sofascore" value="Run sofascore.py"><br>
+  <input type="submit" name="stop_sofascore" value="Stop sofascore.py"><br>
+  <label for="matplotlib">Dados para matplotlib.py:</label><br>
+  <input type="text" id="my_matplotlib" name="my_matplotlib" value=""><br>
+  <input type="submit" name="submit_my_matplotlib" value="Submit for my_matplotlib.py"><br>
+  <input type="submit" name="run_my_matplotlib" value="Run my_matplotlib"><br>
+  <input type="submit" name="stop_my_matplotlib" value="Stop my_matplotlib.py">
+</form> 
+
+</head>
+<body>
+  <h1>Pasta Estática:</h1>
+  <ul>
+      {% for url in file_urls %}
+          <li><a href="{{ url }}">{{ url }}</a></li>
+      {% endfor %}
+  </ul>
+    
+</body>
+</html>
