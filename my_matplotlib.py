@@ -4,7 +4,7 @@ import pandas as pd
 from datetime import timedelta
 
 # Connect to the SQLite database
-conn = sqlite3.connect('{db_name}.db')
+conn = sqlite3.connect('/static/{db_name}.db')
 
 # Execute a SQL query and load the data into a pandas DataFrame
 df = pd.read_sql_query("SELECT timestamp, passes_home, passes_away, expected_goals_home, expected_goals_away, ball_possession_home, ball_possession_away, total_shots_home, total_shots_away, shots_on_target_home, shots_on_target_away, big_chances_home, big_chances_away FROM statistics", conn)
