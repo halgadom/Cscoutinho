@@ -17,5 +17,14 @@
   <input type="submit" name="stop_my_matplotlib" value="Stop my_matplotlib.py">
 </form> 
 
+</head>
+<body>
+  <h1>Pasta Estática:</h1>
+  <ul>
+      {% for url in file_urls %}
+          <li><a href="{{ url }}">{{ url }}</a></li>
+      {% endfor %}
+  </ul>
+    
 </body>
 </html>
