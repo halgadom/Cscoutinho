@@ -12,7 +12,7 @@ headers = {
 }
 
 # Conecta ao banco de dados SQLite local (ou cria um novo se não existir)
-conn = sqlite3.connect('{match_id}.db')
+conn = sqlite3.connect('C:/Users/Caina/Documents/Code-note/Sofascore2/static/{match_id}.db')
 c = conn.cursor()
 
 # Exclui a tabela statistics se ela já existir
