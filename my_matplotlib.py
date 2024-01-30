@@ -49,5 +49,5 @@ for home, away, title in statistics:
     plt.legend()
     plt.xticks(new_timestamps, new_timestamps_str, rotation=45) # Set the x-ticks to the new timestamps
     plt.yticks(range(int(df[home].min()), int(df[home].max()) + 1))
-    plt.savefig(f'{title.replace(" ", "_").lower()}_home_vs_away_over_time.png')
+    plt.savefig(f'\\static\\{title.replace(" ", "_").lower()}_home_vs_away_over_time.png')
     plt.show()
