@@ -1,18 +1,21 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, url_for
 import os
 import re
 import subprocess
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
 # Armazene os processos em execução aqui
 processes = {}
 
+# Defina o caminho para a pasta estática
+static_folder = r'C:\Users\Caina\Documents\Code-note\Sofascore2\static'
+
 @app.route('/', methods=['GET', 'POST'])
 def home():
     # Defina os caminhos completos para os arquivos aqui
-    filepath_sofascore = r'C:\Users\Caina\Documents\Code-note\Sofascore\sofascore.py'
-    filepath_my_matplotlib = r'C:\Users\Caina\Documents\Code-note\Sofascore\my_matplotlib.py'
+    filepath_sofascore = r'C:\Users\Caina\Documents\Code-note\Sofascore2\sofascore.py'
+    filepath_my_matplotlib = r'C:\Users\Caina\Documents\Code-note\Sofascore2\my_matplotlib.py'
     
     if request.method == 'POST':
         if 'submit_sofascore' in request.form:
@@ -53,7 +56,14 @@ def home():
             if 'my_matplotlib' in processes:
                 processes['my_matplotlib'].terminate()
                 return 'Script my_matplotlib.py interrompido!'
-    return render_template('index.html')
+
+    # Liste os arquivos na pasta estática
+    files = os.listdir(app.static_folder)
+
+    # Gere URLs para os arquivos
+    file_urls = [url_for('static', filename=file) for file in files]
+
+    return render_template('index.html', file_urls=file_urls)
 
 if __name__ == '__main__':
     app.run(debug=True)
