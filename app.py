@@ -9,13 +9,13 @@ app = Flask(__name__, static_folder='static')
 processes = {}
 
 # Defina o caminho para a pasta estática
-static_folder = r'C:\Users\Caina\Documents\Code-note\Sofascore2\static'
+static_folder = r'\static'
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
     # Defina os caminhos completos para os arquivos aqui
-    filepath_sofascore = r'C:\Users\Caina\Documents\Code-note\Sofascore2\sofascore.py'
-    filepath_my_matplotlib = r'C:\Users\Caina\Documents\Code-note\Sofascore2\my_matplotlib.py'
+    filepath_sofascore = r'sofascore.py'
+    filepath_my_matplotlib = r'my_matplotlib.py'
     
     if request.method == 'POST':
         if 'submit_sofascore' in request.form:
